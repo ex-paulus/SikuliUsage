@@ -23,24 +23,23 @@ public class TestUtils {
 		// Create mouse object
 		final Mouse mouse = new DesktopMouse();
 		/*
-		 * Perform mouse action, depending on
-		 * desired flash video element
+		 * Perform mouse action, depending on desired flash video element
 		 */
-		if (imagePath.contains("logo")){
+		if (imagePath.contains("logo")) {
 			mouse.drop(r.getCenter());
 		} else {
 			mouse.click(r.getCenter());
 		}
 	}
-	
+
 	public boolean printAllInterceptedRequests(ProxyServer server) {
-		String request = "http://b.scorecardresearch.com/p?c1=2&c2=14640914&ns_type";
-        Har har = server.getHar();  
-        for (HarEntry entry : har.getLog().getEntries()) {  
-        	if (entry.getRequest().getUrl().contains(request)){
-        		return true;
-        	}
-        }
+		String request = "https://f.vimeocdn.com/js_opt/vimeo/modules/utils/vuid.min.js";
+		Har har = server.getHar();
+		for (HarEntry entry : har.getLog().getEntries()) {
+			if (entry.getRequest().getUrl().contains(request)) {
+				return true;
+			}
+		}
 		return false;
 	}
 }

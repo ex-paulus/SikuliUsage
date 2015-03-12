@@ -27,7 +27,10 @@ public class WebDriverFactory {
 	 */
 	public static WebDriver getInstance(Proxy proxy) throws Exception {
 		if (webDriver == null) {
+			String PROXY = "localhost:" + 4444;
 	        DesiredCapabilities capabilities = new DesiredCapabilities();
+	        proxy.setSslProxy(PROXY);
+	        capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 	        capabilities.setCapability(CapabilityType.PROXY, proxy);
 	        webDriver = new FirefoxDriver(capabilities);
 		}
