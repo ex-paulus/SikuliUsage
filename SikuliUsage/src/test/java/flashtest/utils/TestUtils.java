@@ -15,7 +15,7 @@ import org.sikuli.api.robot.desktop.DesktopMouse;
 
 public class TestUtils {
 
-	public void findAndInteractWithElement(String imagePath) {
+	public static void findAndInteractWithElement(String imagePath) {
 		// Find an image location
 		ScreenRegion s = new DesktopScreenRegion();
 		Target button = new ImageTarget(new File(imagePath));
@@ -32,7 +32,7 @@ public class TestUtils {
 		}
 	}
 
-	public boolean printAllInterceptedRequests(ProxyServer server) {
+	public static boolean printAllInterceptedRequests(ProxyServer server) {
 		String request = "https://f.vimeocdn.com/js_opt/vimeo/modules/utils/vuid.min.js";
 		Har har = server.getHar();
 		for (HarEntry entry : har.getLog().getEntries()) {

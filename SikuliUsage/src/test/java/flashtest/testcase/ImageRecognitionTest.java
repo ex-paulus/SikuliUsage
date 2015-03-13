@@ -44,19 +44,19 @@ public class ImageRecognitionTest {
 		JavascriptExecutor jse = (JavascriptExecutor)webDriver;
 		jse.executeScript("window.scrollBy(0,2500)", "");
 		
-		TestUtils flashVideo = new TestUtils();
+		//TestUtils flashVideo = new TestUtils();
 		// Find play button and click on it
-		flashVideo.findAndInteractWithElement("src/test/resources/images/play_button.png");		
+		TestUtils.findAndInteractWithElement("src/test/resources/images/play_button.png");		
 		// Hover mouse cursor over logo image
-		flashVideo.findAndInteractWithElement("src/test/resources/images/logo.png");
+		TestUtils.findAndInteractWithElement("src/test/resources/images/logo.png");
 		// Check if a proper request was sent
-		Assert.assertTrue(flashVideo.printAllInterceptedRequests(server));
+		Assert.assertTrue(TestUtils.printAllInterceptedRequests(server));
 
       
 		// Find pause button and click on it
-        flashVideo.findAndInteractWithElement("src/test/resources/images/pause_button.png");
+        TestUtils.findAndInteractWithElement("src/test/resources/images/pause_button.png");
 		// Check if a proper request was sent
-		Assert.assertTrue(flashVideo.printAllInterceptedRequests(server));
+		Assert.assertTrue(TestUtils.printAllInterceptedRequests(server));
 	}
 	
 	@AfterMethod
