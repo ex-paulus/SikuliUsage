@@ -24,6 +24,9 @@ public class ImageRecognitionTest {
 	protected WebDriver webDriver;
     private static ProxyServer server;
     private static Proxy proxy;
+    private static final String playButton = "src/test/resources/images/play_button.png";
+    private static final String pauseButton = "src/test/resources/images/pause_button.png";
+    private static final String logo = "src/test/resources/images/logo.png";
 	
 	@BeforeMethod
 	public void setup() throws Exception {
@@ -46,15 +49,15 @@ public class ImageRecognitionTest {
 		
 		//TestUtils flashVideo = new TestUtils();
 		// Find play button and click on it
-		TestUtils.findAndInteractWithElement("src/test/resources/images/play_button.png");		
+		TestUtils.findAndInteractWithElement(playButton);		
 		// Hover mouse cursor over logo image
-		TestUtils.findAndInteractWithElement("src/test/resources/images/logo.png");
+		TestUtils.findAndInteractWithElement(logo);
 		// Check if a proper request was sent
 		Assert.assertTrue(TestUtils.printAllInterceptedRequests(server));
 
       
 		// Find pause button and click on it
-        TestUtils.findAndInteractWithElement("src/test/resources/images/pause_button.png");
+        TestUtils.findAndInteractWithElement(pauseButton);
 		// Check if a proper request was sent
 		Assert.assertTrue(TestUtils.printAllInterceptedRequests(server));
 	}
